@@ -8,8 +8,9 @@ const UserContact = require("../models").UserContact;
 exports.importCSV = asyncHandler(async (req, res) => {
 
     const {contacts, id} = req.body;
-     
+    // res.status(201).json(contacts);
     for (let i = 0; i< contacts.length; i++) {
+        if (contacts[i].name == "") break;
         let contact = {
                 name: contacts[i].name,
                 phone: contacts[i].phone,

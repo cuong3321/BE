@@ -10,7 +10,7 @@ const { Op } = require("sequelize");
 exports.createContact = asyncHandler(async (req, res) => {
     //const name = req.body.name;
     const { name, phone, email, groupId, userId } = req.body;
-    const createdContact = await Contact.create({ name, phone, email, groupId });
+    const createdContact = await Contact.create({ name, phone, email, groupId: parseInt(groupId) });
     if (createdContact) {
         // insert UserContact
         const newUserContact = {
