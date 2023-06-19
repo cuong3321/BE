@@ -67,7 +67,6 @@ exports.getContacts = asyncHandler(async (req, res) => {
             ...options,
             where: {
                 [Op.or]: [
-                    { id: { [Op.like]: `%${keyword}%` } },
                     { name: { [Op.like]: `%${keyword}%` } },
                     { phone: { [Op.like]: `%${keyword}%` } },
                     { email: { [Op.like]: `%${keyword}%` } },
